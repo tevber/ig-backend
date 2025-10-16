@@ -13,7 +13,7 @@ export const signup = async (req, res) => {
     const isExisting = await userModel.findOne({
       email,
     });
-    const JWT_SECRET = process.env.JWT_SECRET;
+    const JWT_SECRET = "secret code?";
     if (isExisting) {
       res.status(400).json({ message: "email exists use another YOU LOSER" });
     } else {
