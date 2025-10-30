@@ -6,14 +6,14 @@ export const signup = async (req, res) => {
   try {
     const body = req.body;
 
-    const { password, email, userName, fullName, bio } = body;
+    const { password, email, userName, fullName, bio, profilePic } = body;
     const saltRounds = 10;
     const hashedPassword = await hash(password, saltRounds);
 
     const isExisting = await userModel.findOne({
       email,
     });
-    const JWT_SECRET = "secret code?";
+    const JWT_SECRET = process.env.JWT_SECRET;
     if (isExisting) {
       res.status(400).json({ message: "email exists use another YOU LOSER" });
     } else {
@@ -23,6 +23,7 @@ export const signup = async (req, res) => {
         email,
         password: hashedPassword,
         bio,
+        profilePic,
       });
       const accessToken = jwt.sign(
         {

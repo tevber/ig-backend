@@ -13,9 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const connectToMongoDB = async () => {
-  await mongoose.connect(
-    "mongodb+srv://jellowavocado:00001@teb.uosasgx.mongodb.net/?retryWrites=true&w=majority&appName=teb"
-  );
+  await mongoose.connect(process.env_MONGO_DB_URI);
 };
 
 connectToMongoDB();

@@ -4,6 +4,9 @@ import { login } from "../../controller/user/login.js";
 import { followUser } from "../../controller/user/follow-user.js";
 import { authMiddleWare } from "../../middleware/auth-middleware.js";
 import { userPosts } from "../../controller/user/profile.js";
+import { search } from "../../controller/user/search.js";
+import { editProfilePic } from "../../controller/user/edit-pic.js";
+import { updateUserInfo } from "../../controller/user/bio.js";
 
 const userRouter = express.Router();
 
@@ -11,5 +14,8 @@ userRouter.post("/signup", signup);
 userRouter.post("/login", login);
 userRouter.post("/toggle-follow/:followedUserId", authMiddleWare, followUser);
 userRouter.get("/profile/:userId", authMiddleWare, userPosts);
+userRouter.get("/search", authMiddleWare, search);
+userRouter.put("/edit-pic/:userId", authMiddleWare, editProfilePic);
+userRouter.put("/updateInfo", authMiddleWare, updateUserInfo);
 
 export default userRouter;

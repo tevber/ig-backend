@@ -10,6 +10,10 @@ export const followUser = async (req, res) => {
   const test = followedUser.followers;
   const isFollowed = test.includes(followingUserId);
 
+  if (followedUserId === followingUserId) {
+    res.status(400).json({ message: "ooriigo dagj bolku sht" });
+    return;
+  }
   if (isFollowed) {
     await userModel.findByIdAndUpdate(followingUserId, {
       following: followingUser.following.filter(

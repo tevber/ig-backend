@@ -21,4 +21,6 @@ export const togglePostLike = async (req, res) => {
       likes: [...postLike, user._id],
     });
   }
+
+  res.status(200).json({ message: "success" });
 };
