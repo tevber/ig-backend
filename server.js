@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const connectToMongoDB = async () => {
-  await mongoose.connect(process.env_MONGO_DB_URI);
+  await mongoose.connect(process.env.MONGO_DB_URI);
 };
 
 connectToMongoDB();
