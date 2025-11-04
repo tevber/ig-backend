@@ -10,7 +10,5 @@ export const editProfilePic = async (req, res) => {
 
   const changedPic = await userModel.findByIdAndUpdate(userId, { profilePic });
 
-  console.log(changedPic);
-
   res.status(200).json(changedPic);
 };

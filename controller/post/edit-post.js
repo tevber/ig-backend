@@ -9,6 +9,4 @@ export const editPost = async (req, res) => {
   const { caption } = body;
 
   const post = await postModel.findByIdAndUpdate(postId, { caption: caption });
-
-  console.log(post);
 };

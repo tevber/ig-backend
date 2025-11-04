@@ -21,7 +21,3 @@ connectToMongoDB();
 app.use("/", userRouter);
 app.use("/post", postRouter);
 app.use("/comment", commentRouter);
-
-app.listen(port, () => {
-  console.log("server is running on http://localhost:" + port);
-});
